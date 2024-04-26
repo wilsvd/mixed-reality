@@ -15,36 +15,36 @@ export default function LogicPage() {
   const questions = [
     {
       question: "What is Steve Bagley's favourite hobby?",
-      options: ['Hiking', 'Painting', 'Cooking', 'Reading'],
-      correct: 'Reading',
+      options: ["Hiking", "Painting", "Cooking", "Reading"],
+      correct: "Reading",
     },
     {
       question: "What is Jamie Twycross's favourite programming language?",
-      options: ['Python', 'JavaScript', 'Java', 'C++'],
-      correct: 'Python',
+      options: ["Python", "JavaScript", "Java", "C++"],
+      correct: "Python",
     },
     {
       question: "What is Max Wilson's favourite software methodology?",
-      options: ['Scrum', 'Extreme Programming', 'Kanban', 'Waterfall'],
-      correct: 'Scrum',
+      options: ["Scrum", "Extreme Programming", "Kanban", "Waterfall"],
+      correct: "Scrum",
     },
     {
       question: "What is Milena Radenkovic's favourite animal?",
-      options: ['Cat', 'Dog', 'Rabbit', 'Bird'],
-      correct: 'Dog',
+      options: ["Cat", "Dog", "Rabbit", "Bird"],
+      correct: "Dog",
     },
     {
       question: "Where is Jason Atkin from?",
-      options: ['USA', 'UK', 'Australia', 'Canada'],
-      correct: 'UK',
+      options: ["USA", "UK", "Australia", "Canada"],
+      correct: "UK",
     },
   ]
 
-  const handleAnswerChange = (event) => {
+  const handleAnswerChange = (event: any) => {
     setSelectedAnswer(event.target.value)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault()
     const correct = selectedAnswer === questions[currentQuestion].correct
     setErrorMessage(correct ? '' : 'Incorrect answer, try again')

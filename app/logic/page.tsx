@@ -4,22 +4,22 @@ import { useState, useEffect } from 'react'
 
 export default function LogicPage() {
   const [selectedAnswer, setSelectedAnswer] = useState('')
-  const [isCorrect, setIsCorrect] = useState(null) // Correct answer status
+  const [isCorrect, setIsCorrect] = useState<null | Boolean>(null) // Correct answer status
   const [showQuestion, setShowQuestion] = useState(false) // Whether to show the question
   const [questionTimeRemaining, setQuestionTimeRemaining] = useState(300) // 10 seconds for the question
   const [initialTimerRemaining, setInitialTimerRemaining] = useState(120) // 5 seconds for initial timer
-  const [errorMessage, setErrorMessage] = useState('') // Error message to show if the answer is incorrect
+  const [errorMessage, setErrorMessage] = useState("") // Error message to show if the answer is incorrect
 
-  const handleAnswerChange = (event) => {
+  const handleAnswerChange = (event: any) => {
     setSelectedAnswer(event.target.value) // Update the selected answer
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault()
-    const correctAnswer = 'A' // The correct answer
+    const correctAnswer = "A" // The correct answer
     const correct = selectedAnswer === correctAnswer // Check if the selected answer is correct
     setIsCorrect(correct) // Update the correct answer status
-    setErrorMessage(correct ? '' : 'Incorrect answer, try again') // Set the error message if the answer is incorrect
+    setErrorMessage(correct ? "" : "Incorrect answer, try again") // Set the error message if the answer is incorrect
 
     if (correct) {
       setQuestionTimeRemaining(0) // Stop the timer if the answer is correct
@@ -50,7 +50,7 @@ export default function LogicPage() {
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       {!showQuestion ? (
         <div className="flex flex-col items-center mb-8">
-          <p className="mb-4">Find out what each of your team members' favorite hobbies are and discuss them.</p>
+          <p className="mb-4">Find out what each of your team members&apos; favorite hobbies are and discuss them.</p>
           <p>Time remaining: {initialTimerRemaining} seconds</p>
         </div>
       ) : questionTimeRemaining <= 0 && isCorrect === null ? (
@@ -68,7 +68,7 @@ export default function LogicPage() {
           <h1 className="text-2xl font-bold mb-4">Logical Reasoning Question</h1>
           <p className="mb-4">Which of the following is an example of a logical operation?</p>
           {errorMessage && (
-            <p className="text-red-500 mb-4">{errorMessage}</p> // Show the error message if it's not empty
+            <p className="text-red-500 mb-4">{errorMessage}</p> // Show the error message if it&apos;s not empty
           )}
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -76,7 +76,7 @@ export default function LogicPage() {
                 type="radio"
                 id="option-a"
                 value="A"
-                checked={selectedAnswer === 'A'}
+                checked={selectedAnswer === "A"}
                 onChange={handleAnswerChange}
               />
               <label htmlFor="option-a" className="ml-2">A. AND</label>
@@ -86,7 +86,7 @@ export default function LogicPage() {
                 type="radio"
                 id="option-b"
                 value="B"
-                checked={selectedAnswer === 'B'}
+                checked={selectedAnswer === "B"}
                 onChange={handleAnswerChange}
               />
               <label htmlFor="option-b" className="ml-2">B. LOOP</label>
@@ -96,7 +96,7 @@ export default function LogicPage() {
                 type="radio"
                 id="option-c"
                 value="C"
-                checked={selectedAnswer === 'C'}
+                checked={selectedAnswer === "C"}
                 onChange={handleAnswerChange}
               />
               <label htmlFor="option-c" className="ml-2">C. INDEX</label>
@@ -106,7 +106,7 @@ export default function LogicPage() {
                 type="radio"
                 id="option-d"
                 value="D"
-                checked={selectedAnswer === 'D'}
+                checked={selectedAnswer === "D"}
                 onChange={handleAnswerChange}
               />
               <label htmlFor="option-d" className="ml-2">D. SCOPE</label>
