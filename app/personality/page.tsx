@@ -6,8 +6,8 @@ export default function LogicPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const [isQuizComplete, setIsQuizComplete] = useState(false) // Quiz completion flag
-  const [questionTimeRemaining, setQuestionTimeRemaining] = useState(10) // Question timer
-  const [initialTimerRemaining, setInitialTimerRemaining] = useState(5) // Initial preparation timer
+  const [questionTimeRemaining, setQuestionTimeRemaining] = useState(20) // Question timer
+  const [initialTimerRemaining, setInitialTimerRemaining] = useState(20) // Initial preparation timer
   const [errorMessage, setErrorMessage] = useState('')
   const [prepTimeRemaining, setPrepTimeRemaining] = useState(120) // 2-minute timer for presentation preparation
 
@@ -53,7 +53,7 @@ export default function LogicPage() {
       if (currentQuestion < questions.length - 1) {
         setSelectedAnswer('') // Clear selected answer
         setCurrentQuestion(currentQuestion + 1) // Move to the next question
-        setQuestionTimeRemaining(10) // Reset the question timer
+        setQuestionTimeRemaining(20) // Reset the question timer
       } else {
         setIsQuizComplete(true) // Quiz is complete
       }
@@ -69,7 +69,7 @@ export default function LogicPage() {
             setSelectedAnswer('') // Reset selected answer if the timer runs out
             setCurrentQuestion(currentQuestion + 1) // Move to the next question
             setErrorMessage('') // Clear error message
-            setQuestionTimeRemaining(10) // Reset the question timer
+            setQuestionTimeRemaining(20) // Reset the question timer
           } else {
             setIsQuizComplete(true) // Complete the quiz if timer runs out on the last question
           }
@@ -99,7 +99,7 @@ export default function LogicPage() {
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       {initialTimerRemaining > 0 ? (
         <div className="flex flex-col items-center mb-8">
-          <p className="mb-4">The quiz will start soon. Get ready!</p>
+          <p className="mb-4">The quiz about the lecturers will start soon. You will have 20 seconds to answer each question. Get ready!</p>
           <p>Time remaining: {initialTimerRemaining} seconds</p>
         </div>
       ) : isQuizComplete ? (
